@@ -1,0 +1,288 @@
+<div class="navbar-home ms-5">
+    <div class="dashboard-links-container d-flex justify-content-between">
+        <div class="dashboard-icon-text d-flex">
+            <i class="mt-3 ms-4 me-5 pi pi-home" style="font-size: 1.3rem"></i>
+            <p class="ms-3 mt-2 dashboard-text">Dashboard</p>
+        </div>
+        <div class="links-items">
+            <ul>
+                <li (click)="toggleLink()" [class]="isLinkClicked">
+                    <a href="">Overview</a>
+                </li>
+                <li>
+                    <a href="">Water</a>
+                </li>
+                <li>
+                    <a href="">Land</a>
+                </li>
+                <li class="style-selected-link">
+                    <a href="">Crop</a>
+                </li>
+                <li>
+                    <a href="">Devices</a>
+                </li>
+                <li>
+                    <a href="">Alarms</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-animated-div position-relative">
+        <div
+            class="animated-div-colored  position-absolute {{isDivClicked ? 'close-animated-div' : 'open-animated-div'}}">
+            <div class="row row-forwater ps-2 " [ngStyle]="{'opacity':isDivClicked? 0 : 1}" style="transition:all .1s;">
+                <div class="col-8 d-flex pt-2">
+                    <div class="water-div d-flex py-2 ps-3">
+                        <p class="water-text">WATER</p>
+                        <label for="myDropdown" class="mt-2 ms-5 me-3">Name</label>
+                        <select id="myDropdown" class="myDropdown">
+                            <option value="all" disabled selected>All</option>
+                            <option value="Season01">Season 1</option>
+                            <option value="Season02">Season 2</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-4 d-flex pt-2 justify-content-center ">
+                    <div class="d-flex">
+                        <i class="pi pi-refresh pe-4" style="font-size: 1.5rem"></i>
+                        <i class='fas fa-camera pe-4' style='font-size:1.5rem ; color: #5F6B7A;'></i>
+                        <i class='fas fa-bookmark' style='font-size:1.5rem ; color: #5F6B7A;'></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-Time ps-2  " [ngStyle]="{'opacity':isDivClicked? 0 : 1}" style="transition:all .1s;">
+                <div class="col-11 d-flex pt-2">
+                    <div class="water-div d-flex py-2 ps-3">
+                        <p class="water-text">TIME</p>
+                        <label class="switch ms-2 mt-1">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                        <p class="text-grey mt-1 ms-1 me-4">Live Data</p>
+
+                        <label class="switch ms-2 mt-1">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                        <p class="text-grey mt-1 ms-1 me-4">Season</p>
+
+                        <select id="myDropdown" class="myDropdown me-3">
+                            <option value="Season01" selected>Season 1</option>
+                            <option value="Season02">Season 2</option>
+                        </select>
+
+                        <label class="switch ms-2 mt-1">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                        <p class="text-grey mt-1 ms-1 me-4">Last</p>
+
+                        <select id="myDropdown" class="myDropdown me-3">
+                            <option value="Season01" selected>Quarter</option>
+                            <option value="Season02">Season 2</option>
+                        </select>
+
+                        <label class="switch ms-2 mt-1">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                        <p class="text-grey mt-1 ms-1 me-4">Choose Period</p>
+
+                        <!-- choose period -->
+
+                        <!-- <div class="input-group">
+                            <input type="text" id="with-append-field" class="form-control js-daterangepicker">
+                            <div class="input-group-append">
+                                <label for="with-append-field" class="input-group-text">
+                                    <i class="nova-calendar"></i>
+                                </label>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-1 d-flex  ps-0 justify-content-center pt-2  ">
+                    <div class="btn-apply d-flex align-items-center justify-content-center">
+                        <p class="btn-text-white">Apply</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hide-show-btn position-absolute d-flex justify-content-center" (click)="hideAndShowDiv($event)">
+
+            <p class="hide-show-text">
+                <i class="mt-1 pi pi-angle-{{isDivClicked ? 'down' : 'up'}}" style="font-size: 1.2rem"></i>
+            </p>
+            <p class="mt-1 ps-2">{{ isDivClicked ? 'Show' : 'Hide' }}</p>
+
+        </div>
+    </div>
+    <div class="div-for-down-content position-relative px-1">
+        <div class="row row-for-low-content pt-2">
+            <div class="col-3 col-for-crops ">
+                <div class="crops-card  ps-2 ">
+                    <div class="d-flex">
+                        <p class="" style="color: #273EA5; font-size: 16px; font-family: 'Poppins'; width: 120px;">
+                            Crops
+                        </p>
+                        <i class="pi pi-android" style="font-size: 2rem"></i>
+
+                    </div>
+                    <div class="devices-text-low d-flex justify-content-between px-1">
+                        <div class="d-flex " style="width: 60px;">
+                            <p class="pt-2" style="font-size:48px; font-weight: 600;">8</p>
+                            <p class="pt-5"
+                                style="font-size:12px ; width: 60px; color: #5F6B7A;font-family: 'Poppins';">Types</p>
+                        </div>
+                        <div class="pt-3  ps-2 pe-2" style="width: 140px;">
+                            <p style="font-size:12px;color: #5F6B7A;font-family: 'Poppins';">Planned Production</p>
+                            <div class="d-flex">
+                                <p class="pe-2" style="font-size:32px; font-weight: 600;">2135</p>
+                                <p class="pt-2" style="font-size:10px;color: #5F6B7A;font-family: 'Poppins';">Metric ton
+                                    / acre</p>
+                            </div>
+                        </div>
+                        <div class="pt-3 " style="width: 120px;">
+                            <p style="font-size:12px;color: #5F6B7A;font-family: 'Poppins';">Yields</p>
+                            <div class="d-flex">
+                                <p class="pe-2" style="font-size:32px; font-weight: 600;">200</p>
+                                <p class="pt-2" style="font-size:10px;color: #5F6B7A;font-family: 'Poppins';">Metric ton
+                                    / acre</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="crops-health mb-1 px-2 pt-2 mt-2 ">
+                    <div>
+                        <p style="color: #273EA5; font-size: 14px; font-family: 'Poppins'; font-weight: 600;">Crop
+                            Health
+                            /Growth</p>
+                    </div>
+                    <div class="forchart d-flex justify-content-center pb-4">
+                        <canvas id="canvas">{{chart}}</canvas>
+                    </div>
+                </div>
+                <div class="crops-rotation mb-1 px-2 pt-2 mt-2">
+                    <div>
+                        <p style="color: #273EA5; font-size: 14px; font-family: 'Poppins'; font-weight: 600;">Crop
+                            Rotation</p>
+                    </div>
+                    <div class="forchart d-flex justify-content-center pb-1">
+                        <canvas id="radarId">{{chart}}</canvas>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-6 col-for-water px-0">
+                <div class="water-consumption-all-card d-flex justify-content-center">
+                    <div class="col-4 pe-2">
+                        <div class="crops-card px-2 ">
+                            <div class="d-flex">
+                                <p class=""
+                                    style="color: #273EA5; font-size: 16px; font-family: 'Poppins'; width: 120px;">
+                                    Water
+                                    Consumption
+                                </p>
+                                <i class="pi pi-briefcase" style="font-size: 2rem"></i>
+                            </div>
+                            <div class="largenumber d-flex pb-2">
+                                <p class="mt-2" style="font-size:32px; font-weight: 600;">196,000</p>
+                                <p class="pt-3 ps-2" style="color: #5F6B7A; font-size: 12px;">m3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 pe-2">
+                        <div class="crops-card px-2 py-2 ">
+                            <div class="d-flex">
+                                <p class="pe-4" style="color: #273EA5; font-size: 16px; font-family: 'Poppins';">
+                                    Fertilizers
+                                </p>
+                                <i class="pi pi-language" style="font-size: 2rem"></i>
+
+                            </div>
+                            <div class="largenumber d-flex">
+                                <p class="pt-3" style="font-size:32px; font-weight: 600;">47,430 </p>
+                                <p class="pt-3 ps-2" style="color: #5F6B7A; font-size: 12px;">kg</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 ">
+                        <div class="crops-card px-2 py-2 ">
+                            <div class="d-flex">
+                                <p class="pe-4" style="color: #273EA5; font-size: 16px; font-family: 'Poppins';">
+                                    Pesticides
+                                </p>
+                                <i class="pi pi-cart-plus" style="font-size: 2rem"></i>
+                            </div>
+                            <div class="largenumber d-flex">
+                                <p class="pt-3" style="font-size:32px; font-weight: 600;">2,101</p>
+                                <p class="pt-3 ps-2" style="color: #5F6B7A; font-size: 12px;">L</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" planAndAcual mb-1 py-2 mt-2">
+                    <div class="d-flex py-2">
+                        <p class="px-3"
+                            style="color: #273EA5; font-size: 14px; font-family: 'Poppins'; font-weight: 600;">Plans Vs
+                            Actual</p>
+                        <p class="pe-3"
+                            style="color: #5F6B7A; font-size: 14px; font-family: 'Poppins'; font-weight: 600;">Land
+                            Distribution per Crop</p>
+                        <p style="color: #5F6B7A; font-size: 14px; font-family: 'Poppins'; font-weight: 600;">Water
+                            Consumption Per Crop</p>
+                    </div>
+                    <div class="grid-icons d-flex justify-content-end pe-3">
+                        <form action="">
+                            <input class="me-1" type="radio" id="myCheckbox" name="myCheckbox" value="checked">
+                            <i class="mt-2 me-4 pi pi-chart-bar" style="font-size:20px;color:#5F6B7A"></i>
+                            <input class="me-1" type="radio" id="myCheckbox" name="myCheckbox" value="checked">
+                            <i class="mt-2 me-3 fa fa-table" style="font-size:20px;color:#5F6B7A"></i>
+                        </form>
+                    </div>
+                    <div class="largechart d-flex justify-content-center pb-3 pe-2">
+                        <canvas id="linechartId">{{chart}}</canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3 col-for-maps">
+                <div class="map my-1 me-2">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d28392.866387467173!2d31.185305599999996!3d27.1843328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1706697000568!5m2!1sen!2seg"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="devices mb-1 me-2">
+                    <div class="device-text d-flex justify-content-between px-2 pt-2">
+                        <p style="color:#273EA5; font-size: 16px; font-family: Poppins;">Devices</p>
+                        <div>
+                            <p class="" style="font-size:12px ;">Last Update Date Time</p>
+                            <p style="font-size:12px ; ">Sep 13 , 2023 , 7:01 Am</p>
+                        </div>
+                    </div>
+                    <div class="devices-text-low d-flex justify-content-between px-1">
+                        <p class="pt-4" style="font-size:48px; font-weight: 600;">21</p>
+                        <p class="pt-4" style="font-size:12px ; width: 60px;">Total Connected Devices</p>
+                        <div class="text-center pt-3">
+                            <p style="font-size:32px; font-weight: 600;">41</p>
+                            <p style="font-size:12px;">Events</p>
+                        </div>
+                        <div class="text-center pt-3">
+                            <p style="font-size:32px; font-weight: 600;">84</p>
+                            <p style="font-size:12px;">Inceident</p>
+                        </div>
+                        <div class="text-center pt-3">
+                            <p style="font-size:32px; font-weight: 600;">42</p>
+                            <p style="font-size:12px;">Optional alerts</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

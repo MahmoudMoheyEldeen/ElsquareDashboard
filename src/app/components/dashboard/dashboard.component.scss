@@ -1,0 +1,333 @@
+.navbar-home {
+    border-top-left-radius: 20px;
+    background-color: #FDFDFD;
+    width: 1350px;
+    box-shadow: 0px 3px 6px #00000029;
+
+}
+
+.pi {
+    color: #5F6B7A;
+
+}
+
+.dashboard-text {
+    color: #5F6B7A;
+    font-family: 'Barlow';
+    font-weight: 600;
+    font-size: 24px;
+}
+
+ul,
+li {
+    list-style: none;
+    display: inline-block;
+    padding: 3px 40px;
+}
+
+a {
+    text-decoration: none;
+    color: #5F6B7A;
+    font-family: 'Barlow';
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 0px;
+}
+
+.links-items {
+    box-shadow: 0px 3px 6px #00000029;
+    background-color: #F6F6F6;
+    margin: 0;
+    height: 2.7rem;
+}
+
+.main-animated-div {
+    width: 1420px;
+    border-top: 1px solid #5f6b7a65;
+    height: 115px;
+}
+
+.animated-div-colored {
+    background-color: #84b5ed6c;
+    width: 1420px;
+    height: 115px;
+    transform-origin: top;
+    transition: all .3s ease-in-out;
+}
+
+
+.close-animated-div {
+    transform: scaleY(.1);
+}
+
+// .animated-div-colored::after {
+//     position: absolute;
+//     content: '';
+//     top: 0;
+//     left: 0;
+//     background-color: #84b5ed6c;
+//     height: 100%;
+//     width: 100%;
+// }
+.water-div {
+    border: 1px solid #5f6b7a65;
+    width: 100%;
+    height: fit-content;
+
+    select {
+        height: 30px;
+    }
+
+    label {
+        color: #5F6B7A;
+        font-family: 'Poppins';
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .myDropdown {
+        text-align: center;
+        border-radius: 5px;
+        width: 140px;
+        border: none;
+        color: #5F6B7A;
+        font-family: 'Poppins';
+        font-size: 12px;
+        font-weight: 600;
+
+        option {
+            color: #5F6B7A;
+            font-family: 'Poppins';
+            font-size: 12px;
+            font-weight: 600;
+        }
+    }
+
+
+
+}
+
+.water-text {
+    font-family: 'Poppins';
+    color: #273EA5;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.hide-show-btn {
+    width: 100px;
+    height: 2rem;
+    border: none;
+    box-shadow: 0px 3px 6px #00000029;
+    text-align: center;
+    border-radius: 2px;
+    background-color: #B8D3EE;
+    cursor: pointer;
+    right: 0;
+    justify-content: center;
+    align-content: space-around;
+
+    p {
+        color: #5F6B7A;
+        font-family: 'Poppins';
+        font-size: 12px;
+        font-weight: 600;
+        margin: 0;
+    }
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.text-grey {
+    color: #5F6B7A;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-apply {
+    background-color: #2196F3;
+    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+
+}
+
+.btn-text-white {
+    color: white;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.div-for-down-content {
+    height: fit-content;
+    background-color: #FDFDFD;
+    width: 1420px;
+    box-shadow: 0px 3px 6px #00000029;
+
+
+    .row-for-low-content {
+
+        .crops-card {
+            background-color: white;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 3px 6px #00000029;
+            height: fit-content;
+
+        }
+
+        .crops-health {
+            background-color: white;
+
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 3px 6px #00000029;
+            height: 190px;
+            overflow: hidden;
+
+        }
+
+        .crops-rotation {
+            background-color: white;
+
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 3px 6px #00000029;
+            height: 220px;
+
+        }
+
+        .card-water {
+            background-color: white;
+
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 3px 6px #00000029;
+            height: 150px;
+        }
+
+        .planAndAcual {
+            background-color: white;
+
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 3px 6px #00000029;
+            height: 410px;
+        }
+
+        .map {
+            background-color: white;
+
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 3px 6px #00000029;
+            height: 22.3rem;
+            overflow: hidden;
+
+        }
+
+        .devices {
+            background-color: white;
+
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 3px 6px #00000029;
+            height: 150px;
+        }
+    }
+
+}
+
+.style-selected-link {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(142, 197, 253, 1) 95%, rgba(0, 123, 249, 1) 100%);
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.legend-label {
+    font-size: 12px;
+    /* Adjust font size as needed */
+    color: red;
+    /* Adjust color as needed */
+    /* Add any other styles as needed */
+}
+
+.forchart {
+    width: 100%;
+    height: 100%;
+}
+
+.grid-icons {
+    background-color: #F0F3F6;
+    height: 40px;
+}
+
+.largechart {
+    width: 100%;
+    height: 85%;
+}

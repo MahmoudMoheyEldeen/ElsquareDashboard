@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'squarefont';
+    /* Provide a unique name for your font */
+    src: url(/assets/fonts/squarefont.ttf) format('truetype');
+    /* Adjust the path and format accordingly */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'youaregone';
+    /* Provide a unique name for your font */
+    src: url(/assets/fonts/youregone.otf) format('truetype');
+    /* Adjust the path and format accordingly */
+    font-weight: normal;
+    font-style: normal;
+}
+
+.logo-font {
+    font-family: 'squarefont';
+    font-size: 21px;
+    color: #0F1D3D;
+}
+
+.aisWord {
+    font-family: 'youaregone';
+    font-size: 49px;
+    color: #5F6B7A;
+    line-height: 0;
+}
+
+.search {
+    border-radius: 13px;
+    border: 1px solid #9BA7B6;
+    width: 400px;
+    height: 35px;
+
+    input {
+        border: none;
+        width: 350px;
+
+
+    }
+
+    input:focus {
+        outline: none;
+    }
+}
+
+.pi {
+    color: #9BA7B6;
+}
+
+.vertical-hr {
+    background-color: #9BA7B6;
+    height: 20px;
+    width: 1px;
+}
+
+.userName {
+    color: #9BA7B6;
+}
+
+.logo-square {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: rgb(91, 60, 249);
+    background: linear-gradient(90deg, rgba(91, 60, 249, 1) 0%, rgba(42, 155, 254, 1) 100%);
+}
+
+.logo-square::after {
+    content: '2';
+    position: absolute;
+    font-size: 65px;
+    font-weight: 600;
+    // font-family: "ZCOOL QingKe HuangYou", sans-serif;
+    // font-family: "Zen Dots";
+    font-family: "Orbitron", sans-serif;
+    top: -33px;
+    bottom: 0;
+    color: #8BD9FA;
+    left: 6px;
+}
