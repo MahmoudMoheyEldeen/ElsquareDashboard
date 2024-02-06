@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LegendPosition } from '@swimlane/ngx-charts';
 import Chart from 'chart.js/auto';
+import { ApiService } from '../../api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,9 +22,11 @@ export class DashboardComponent implements OnInit {
   title = 'ng-chart';
   chart: any = [];
 
-  constructor() {}
+  constructor(private myApi: ApiService) {}
 
   ngOnInit() {
+    this.getCrops();
+
     this.chart = new Chart('canvas', {
       type: 'doughnut',
       data: {
@@ -182,5 +185,15 @@ export class DashboardComponent implements OnInit {
         },
       },
     });
+  }
+
+  getCrops() {
+    this.myApi
+      .getData(
+        'https://fcc2efca-4005-4634-b75b-f14c52aa18d7.mock.pstmn.io/CropDetails'
+      )
+      .subscribe((data: any) => {
+        console.log('asdsassssssssssssssssssssssss', data);
+      });
   }
 }

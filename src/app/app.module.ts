@@ -7,6 +7,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     FooterComponent,
     DashboardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgxChartsModule],
+  imports: [BrowserModule, AppRoutingModule, NgxChartsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
