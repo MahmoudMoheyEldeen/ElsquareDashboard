@@ -11,6 +11,12 @@ import { ApiService } from '../../api.service';
 export class DashboardComponent implements OnInit {
   isDivClicked: boolean = false;
   isLinkClicked: boolean = false;
+  cropsTypes: any;
+  plannedProduction: any;
+  yields: any;
+  fertilizer: any;
+  waterConsumption: any;
+  pesticides: any;
 
   hideAndShowDiv(e: Event) {
     this.isDivClicked = !this.isDivClicked;
@@ -194,6 +200,12 @@ export class DashboardComponent implements OnInit {
       )
       .subscribe((data: any) => {
         console.log('asdsassssssssssssssssssssssss', data);
+        this.cropsTypes = data.crops.types;
+        this.plannedProduction = data.crops.plannedProduction;
+        this.yields = data.crops.yields;
+        this.fertilizer = data.fertilizers;
+        this.pesticides = data.pesticides;
+        this.waterConsumption = data.waterConsumption;
       });
   }
 }
