@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   waterConsumption: any;
   pesticides: any;
   doughnutDataChart: [] = [];
+  barDataChart: [] = [];
   radarChartData: [] = [];
   columnChartData: [] = [];
   dataForEachLabel: [] = [];
@@ -41,58 +42,21 @@ export class DashboardComponent implements OnInit {
     this.getCrops();
     // this.displayDoughnutChart();
     this.getDoughnutData();
-
     this.getRadarchartData();
+    this.getBarchartData();
+  }
 
-    this.chart = new Chart('linechartId', {
-      type: 'bar',
-      data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [
-          {
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            borderWidth: 1,
-            borderRadius: [10, 20],
-            backgroundColor: '#273EA5',
-            categoryPercentage: 0.4,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        indexAxis: 'y',
-        scales: {
-          x: [
-            {
-              id: 'x-axis-0',
-              position: 'top',
-              ticks: {
-                beginAtZero: true,
-              },
-            },
-          ] as any[],
-          y: [
-            {
-              display: false,
-              ticks: {
-                beginAtZero: true,
-              },
-              grid: {
-                display: false,
-              },
-            },
-          ] as any[],
-        } as any,
-        plugins: {
-          legend: {
-            display: true,
-            position: 'left',
-          },
-        },
-      },
-    });
+  getBarchartData() {
+    this.myApi
+      .getData(
+        'https://fcc2efca-4005-4634-b75b-f14c52aa18d7.mock.pstmn.io/ColumnChart'
+      )
+      .subscribe((data: any) => {
+        console.log('barhere', data);
+        this.barDataChart = data.series;
+        console.log('another here', this.barDataChart);
+        this.displayBarChart();
+      });
   }
   getDoughnutData() {
     this.myApi
@@ -126,6 +90,57 @@ export class DashboardComponent implements OnInit {
         this.displayRadarChart();
       });
   }
+  displayBarChart() {
+    this.chart = new Chart('linechartId', {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [
+          {
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 3, 3],
+            backgroundColor: '#273EA5',
+            borderWidth: 1,
+            borderRadius: [10, 20],
+            categoryPercentage: 0.4,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        indexAxis: 'y', // Set indexAxis to 'y' to display labels on the left
+        scales: {
+          x: [
+            {
+              id: 'x-axis-0',
+              position: 'top',
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ] as any[],
+          y: [
+            {
+              display: false,
+              ticks: {
+                beginAtZero: true,
+              },
+              grid: {
+                display: false,
+              },
+            },
+          ] as any[],
+        } as any,
+        plugins: {
+          legend: {
+            display: false, // Hide the legend if you want to display labels on the left
+          },
+        },
+      },
+    });
+  }
+
   displayDoughnutChart() {
     this.chart = new Chart('canvas', {
       type: 'doughnut',
