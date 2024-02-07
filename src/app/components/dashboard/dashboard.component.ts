@@ -25,6 +25,9 @@ export class DashboardComponent implements OnInit {
   arrayOfData: [] = [];
   arrayOfArraysForData: any[] = [];
   arrayOfArraysForLabel: any[] = [];
+  bardataForName: any[] = [];
+  arrayBardataForName: any[] = [];
+  bardataFordata: any[] = [];
 
   hideAndShowDiv(e: Event) {
     this.isDivClicked = !this.isDivClicked;
@@ -49,19 +52,23 @@ export class DashboardComponent implements OnInit {
   getBarchartData() {
     this.myApi
       .getData(
-        'https://fcc2efca-4005-4634-b75b-f14c52aa18d7.mock.pstmn.io/ColumnChart'
+        'https://eef87667-757d-465c-8e28-6ff7d35af1a9.mock.pstmn.io/ColumnChart'
       )
       .subscribe((data: any) => {
-        console.log('barhere', data);
-        this.barDataChart = data.series;
-        console.log('another here', this.barDataChart);
+        for (let i = 0; i < data.series.length; i++) {
+          this.bardataForName = data.series[i].name;
+          this.arrayBardataForName.push(this.bardataForName);
+        }
+        this.bardataFordata = data.Categories_X_axis;
+        console.log(data.series.length);
+        console.log('barchartttttttttttttttt', this.arrayBardataForName);
         this.displayBarChart();
       });
   }
   getDoughnutData() {
     this.myApi
       .getData(
-        'https://fcc2efca-4005-4634-b75b-f14c52aa18d7.mock.pstmn.io/DonutChart'
+        'https://eef87667-757d-465c-8e28-6ff7d35af1a9.mock.pstmn.io/DonutChart'
       )
       .subscribe((data: any) => {
         console.log('here', data.series);
@@ -73,7 +80,7 @@ export class DashboardComponent implements OnInit {
   getRadarchartData() {
     this.myApi
       .getData(
-        'https://fcc2efca-4005-4634-b75b-f14c52aa18d7.mock.pstmn.io/RadarChart'
+        'https://eef87667-757d-465c-8e28-6ff7d35af1a9.mock.pstmn.io/RadarChart'
       )
       .subscribe((data: any) => {
         for (let i = 0; i < data.series.length; i++) {
@@ -94,15 +101,15 @@ export class DashboardComponent implements OnInit {
     this.chart = new Chart('linechartId', {
       type: 'bar',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        xLabels: this.bardataFordata,
+        yLabels: this.arrayBardataForName,
         datasets: [
           {
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 3, 3],
+            label: 'sdasd',
+            data: [150, 140, 160, 150, 130, 170, 150, 140, 200],
+            borderRadius: 15,
             backgroundColor: '#273EA5',
-            borderWidth: 1,
-            borderRadius: [10, 20],
-            categoryPercentage: 0.4,
+            barThickness: 15,
           },
         ],
       },
@@ -255,7 +262,7 @@ export class DashboardComponent implements OnInit {
   getCrops() {
     this.myApi
       .getData(
-        'https://fcc2efca-4005-4634-b75b-f14c52aa18d7.mock.pstmn.io/CropDetails'
+        'https://eef87667-757d-465c-8e28-6ff7d35af1a9.mock.pstmn.io/CropDetails'
       )
       .subscribe((data: any) => {
         console.log('asdsassssssssssssssssssssssss', data);
