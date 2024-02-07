@@ -28,6 +28,8 @@ export class DashboardComponent implements OnInit {
   bardataForName: any[] = [];
   arrayBardataForName: any[] = [];
   bardataFordata: any[] = [];
+  eachFirstDataForBar: any;
+  arrayForEachFirstData: any[] = [];
 
   hideAndShowDiv(e: Event) {
     this.isDivClicked = !this.isDivClicked;
@@ -57,11 +59,14 @@ export class DashboardComponent implements OnInit {
       .subscribe((data: any) => {
         for (let i = 0; i < data.series.length; i++) {
           this.bardataForName = data.series[i].name;
+          // this.eachFirstDataForBar = data.series[i].data[0];
           this.arrayBardataForName.push(this.bardataForName);
+          this.arrayForEachFirstData.push(data.series[i].data[0]);
+          // console.log(this.eachFirstDataForBar);
         }
+        console.log('firstdata', ...this.arrayForEachFirstData.join(','));
+
         this.bardataFordata = data.Categories_X_axis;
-        console.log(data.series.length);
-        console.log('barchartttttttttttttttt', this.arrayBardataForName);
         this.displayBarChart();
       });
   }
@@ -106,7 +111,7 @@ export class DashboardComponent implements OnInit {
         datasets: [
           {
             label: 'sdasd',
-            data: [150, 140, 160, 150, 130, 170, 150, 140, 200],
+            data: [...this.arrayForEachFirstData, 200],
             borderRadius: 15,
             backgroundColor: '#273EA5',
             barThickness: 15,
